@@ -1,0 +1,31 @@
+I've build a Page Object Modal. I've did this just because it's a very nice
+way of building your test framework and helps to reduce duplicate code when the
+project grows. If the app would stay as small as it is now, I wouldn't put in
+the effort of building a POM framework.
+
+The POM framework contains a folder Screens, this is where the BaseScreen is,
+which would contain basic screen elements that are applicable in the entire
+app.
+And A screenfile per screen, in this case just the MainScreen.
+In the MainScreen class I define the elements which I will use for testing
+as well as the functions that I will execute on this screen.
+
+In the Tests folder the different tests are defined,
+the BaseTest contains the functions applicable to all tests,
+such as the setup and teardown.
+
+I have created two tests, the first one is InitialLabelTest,
+it checks to see if the label is "Hello" when I launch the app.
+The second one is ChangeLabelTest,
+it checks that the label has changed after pushing the button.
+
+I also edited the Fastfile for fastline,
+so that it can execute the tests on two simulators.
+This is to easily expand the coverage over several devices using fastlane.
+It could also be executed using the xcode build tools:
+
+xcodebuild \
+ -scheme ReferenceiOSUITests \
+ -destination 'platform=iOS Simulator,name=iPhone X,OS=12.1' \
+ -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=12.1' \
+ test

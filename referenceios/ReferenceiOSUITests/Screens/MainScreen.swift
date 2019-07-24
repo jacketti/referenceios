@@ -10,8 +10,8 @@ import Foundation
 
 class MainScreen : BaseScreen {
    // Elements
-    let label = app.staticTexts["label"].label
-    let button = app.buttons["Button"]
+    lazy var label = app.staticTexts["label"].label
+    lazy var button = app.buttons["Button"]
     
     
     // Functions
